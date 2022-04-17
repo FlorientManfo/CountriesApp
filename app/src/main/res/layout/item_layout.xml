@@ -1,9 +1,223 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="20dp"
+    android:layout_gravity="center">
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical">
 
+       <LinearLayout
+           android:orientation="horizontal"
+           android:paddingLeft="20dp"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
 
+           <de.hdodenhof.circleimageview.CircleImageView
+               android:id="@+id/flag"
+               android:layout_width="90dp"
+               android:layout_height="90dp"
+               android:background="@drawable/img"
+               tools:srcCompat="@tools:sample/avatars[4]" />
 
-</LinearLayout>
+           <androidx.constraintlayout.widget.ConstraintLayout
+               android:layout_marginLeft="20dp"
+               android:layout_marginRight="20dp"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent">
+
+               <RelativeLayout
+                   android:id="@+id/relativeLayout"
+                   android:layout_width="wrap_content"
+                   android:layout_height="match_parent"
+                   android:gravity="center"
+                   android:orientation="vertical"
+                   app:layout_constraintBottom_toBottomOf="parent"
+                   app:layout_constraintStart_toStartOf="parent"
+                   app:layout_constraintTop_toTopOf="parent">
+
+                   <TextView
+                       android:id="@+id/countryName"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Name"
+                       android:textSize="30sp"
+                       android:textStyle="bold" />
+
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_alignParentBottom="true"
+                       android:orientation="horizontal">
+
+                       <TextView
+                           android:id="@+id/countryCode"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="code"
+                           android:textSize="30sp" />
+
+                       <TextView
+                           android:id="@+id/initial"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginLeft="30dp"
+                           android:text="Initial"
+                           android:textSize="30sp" />
+                   </LinearLayout>
+
+               </RelativeLayout>
+
+               <ImageButton
+                   android:id="@+id/dropdownDetails"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="end"
+                   android:background="@color/white"
+                   android:src="@drawable/ic_baseline_keyboard_arrow_down_24"
+                   app:layout_constraintBottom_toBottomOf="@+id/relativeLayout"
+                   app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintTop_toTopOf="@+id/relativeLayout"
+                   app:tint="@android:color/black" />
+           </androidx.constraintlayout.widget.ConstraintLayout>
+
+       </LinearLayout>
+
+       <LinearLayout
+           android:visibility="gone"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+
+           <LinearLayout
+               android:id="@+id/more"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:padding="10dp">
+
+               <LinearLayout
+                   android:layout_marginLeft="10dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical">
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textSize="20sp"
+                       android:text="Region : "/>
+
+                   <TextView
+                       android:layout_marginTop="20dp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textSize="20sp"
+                       android:text="Official name : "/>
+
+                   <TextView
+                       android:layout_marginTop="20dp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textSize="20sp"
+                       android:text="Capital : "/>
+
+                   <TextView
+                       android:layout_marginTop="20dp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textSize="20sp"
+                       android:text="Languages : "/>
+
+                   <TextView
+                       android:layout_marginTop="20dp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textSize="20sp"
+                       android:text="Currencies : "/>
+
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical"
+                   android:layout_marginLeft="20dp"
+                   android:layout_marginRight="20dp">
+                   <TextView
+                       android:id="@+id/region"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textSize="20sp"
+                       android:textStyle="bold"
+                       android:text="Region"/>
+
+                   <TextView
+                       android:id="@+id/officialName"
+                       android:layout_marginTop="20dp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textSize="20sp"
+                       android:textStyle="bold"
+                       android:text="Official name"/>
+
+                   <TextView
+                       android:id="@+id/capital"
+                       android:layout_marginTop="20dp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textSize="20sp"
+                       android:textStyle="bold"
+                       android:text="Capital"/>
+
+                   <com.google.android.material.chip.ChipGroup
+                       android:id="@+id/languages"
+                       android:layout_marginTop="10dp"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:scrollbarAlwaysDrawHorizontalTrack="true">
+
+                       <com.google.android.material.chip.Chip
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:text="None"
+                           android:textSize="20sp"
+                           android:textColor="@color/white"
+                           android:backgroundTint="@android:color/black"/>
+
+                   </com.google.android.material.chip.ChipGroup>
+
+                   <TextView
+                       android:id="@+id/currencies"
+                       android:layout_marginTop="10dp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:textSize="20sp"
+                       android:textStyle="bold"
+                       android:text="Currencies "/>
+
+               </LinearLayout>
+
+           </LinearLayout>
+
+           <Button
+               android:id="@+id/seeMore"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="See more"
+               android:textAllCaps="false"
+               android:textSize="20sp"
+               android:drawableRight="@drawable/ic_baseline_arrow_right_alt_24"
+               android:textAlignment="textStart"
+               android:layout_marginBottom="10dp"
+               android:layout_marginLeft="20dp"
+               android:layout_marginRight="20dp"/>
+
+       </LinearLayout>
+
+   </LinearLayout>
+
+</androidx.cardview.widget.CardView>
