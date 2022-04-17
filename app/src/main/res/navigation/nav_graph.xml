@@ -18,5 +18,10 @@
         android:id="@+id/countryDetails"
         android:name="net.tipam2022.countriesapp.CountryDetails"
         android:label="fragment_country_details"
-        tools:layout="@layout/fragment_country_details" />
+        tools:layout="@layout/fragment_country_details" >
+        <argument
+            android:name="country"
+            app:argType="net.tipam2022.countriesapp.models.Country"
+            app:nullable="true" />
+    </fragment>
 </navigation>

@@ -4,10 +4,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class CountryAdapter():
+class CountryAdapter(var countries: ArrayList<Country>):
     RecyclerView.Adapter<CountryAdapter.CountryViewHolder>()  {
-    
-    var countries: ArrayList<Country>? = null
+
     class CountryViewHolder(viewHolder: View): RecyclerView.ViewHolder(viewHolder) {
 
     }
