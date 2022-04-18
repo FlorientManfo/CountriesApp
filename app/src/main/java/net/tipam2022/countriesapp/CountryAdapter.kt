@@ -3,6 +3,7 @@ package net.tipam2022.countriesapp
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import net.tipam2022.countriesapp.models.Country
 
 class CountryAdapter(var countries: ArrayList<Country>):
     RecyclerView.Adapter<CountryAdapter.CountryViewHolder>()  {

@@ -3,7 +3,6 @@ package net.tipam2022.countriesapp.models;
 
 import java.util.HashMap;
 import java.util.Map;
-import javax.annotation.Generated;
 import android.os.Parcelable;
 import android.os.Parcelable.Creator;
 import android.os.Parcelable.Creator;
