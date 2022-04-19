@@ -89,7 +89,7 @@
        </LinearLayout>
 
        <LinearLayout
-           android:visibility="gone"
+           android:visibility="visible"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:orientation="vertical">
@@ -179,15 +179,11 @@
                        android:layout_marginTop="10dp"
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
+                       style="@style/chip_style"
                        android:scrollbarAlwaysDrawHorizontalTrack="true">
 
                        <com.google.android.material.chip.Chip
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:text="None"
-                           android:textSize="20sp"
-                           android:textColor="@color/white"
-                           android:backgroundTint="@android:color/black"/>
+                           android:text="None"/>
 
                    </com.google.android.material.chip.ChipGroup>
 

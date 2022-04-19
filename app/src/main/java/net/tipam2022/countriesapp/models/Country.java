@@ -20,13 +20,13 @@ public class Country implements Parcelable
     private boolean independent;
     private String status;
     private boolean unMember;
-    private Currencies currencies;
+    private Object currencies;
     private Idd idd;
     private List<String> capital = new ArrayList<String>();
     private List<String> altSpellings = new ArrayList<String>();
     private String region;
     private String subregion;
-    private Languages languages;
+    private Object languages;
     private Translations translations;
     private List<Double> latlng = new ArrayList<Double>();
     private boolean landlocked;
@@ -73,13 +73,13 @@ public class Country implements Parcelable
         this.independent = ((boolean) in.readValue((boolean.class.getClassLoader())));
         this.status = ((String) in.readValue((String.class.getClassLoader())));
         this.unMember = ((boolean) in.readValue((boolean.class.getClassLoader())));
-        this.currencies = ((Currencies) in.readValue((Currencies.class.getClassLoader())));
+        this.currencies = ((Object) in.readValue((Object.class.getClassLoader())));
         this.idd = ((Idd) in.readValue((Idd.class.getClassLoader())));
         in.readList(this.capital, (String.class.getClassLoader()));
         in.readList(this.altSpellings, (String.class.getClassLoader()));
         this.region = ((String) in.readValue((String.class.getClassLoader())));
         this.subregion = ((String) in.readValue((String.class.getClassLoader())));
-        this.languages = ((Languages) in.readValue((Languages.class.getClassLoader())));
+        this.languages = ((Object) in.readValue((Object.class.getClassLoader())));
         this.translations = ((Translations) in.readValue((Translations.class.getClassLoader())));
         in.readList(this.latlng, (Double.class.getClassLoader()));
         this.landlocked = ((boolean) in.readValue((boolean.class.getClassLoader())));
@@ -145,7 +145,7 @@ public class Country implements Parcelable
      * @param status
      * @param currencies
      */
-    public Country(Name name, List<String> tld, String cca2, String ccn3, String cca3, String cioc, boolean independent, String status, boolean unMember, Currencies currencies, Idd idd, List<String> capital, List<String> altSpellings, String region, String subregion, Languages languages, Translations translations, List<Double> latlng, boolean landlocked, List<String> borders, double area, Demonyms demonyms, String flag, Maps maps, int population, Gini gini, String fifa, Car car, List<String> timezones, List<String> continents, Flags flags, CoatOfArms coatOfArms, String startOfWeek, CapitalInfo capitalInfo) {
+    public Country(Name name, List<String> tld, String cca2, String ccn3, String cca3, String cioc, boolean independent, String status, boolean unMember, Object currencies, Idd idd, List<String> capital, List<String> altSpellings, String region, String subregion, Object languages, Translations translations, List<Double> latlng, boolean landlocked, List<String> borders, double area, Demonyms demonyms, String flag, Maps maps, int population, Gini gini, String fifa, Car car, List<String> timezones, List<String> continents, Flags flags, CoatOfArms coatOfArms, String startOfWeek, CapitalInfo capitalInfo) {
         super();
         this.name = name;
         this.tld = tld;
@@ -255,11 +255,11 @@ public class Country implements Parcelable
         this.unMember = unMember;
     }
 
-    public Currencies getCurrencies() {
+    public Object getCurrencies() {
         return currencies;
     }
 
-    public void setCurrencies(Currencies currencies) {
+    public void setCurrencies(Object currencies) {
         this.currencies = currencies;
     }
 
@@ -303,11 +303,11 @@ public class Country implements Parcelable
         this.subregion = subregion;
     }
 
-    public Languages getLanguages() {
+    public Object getLanguages() {
         return languages;
     }
 
-    public void setLanguages(Languages languages) {
+    public void setLanguages(Object languages) {
         this.languages = languages;
     }
 

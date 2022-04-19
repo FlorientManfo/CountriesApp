@@ -1,10 +1,16 @@
 package net.tipam2022.countriesapp
 
+import android.os.Build
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.fasterxml.jackson.databind.json.JsonMapper
+import com.fasterxml.jackson.module.kotlin.jsonMapper
 import net.tipam2022.countriesapp.databinding.FragmentCountriesListBinding
 import net.tipam2022.countriesapp.models.Country
 import retrofit2.Call
@@ -50,14 +56,19 @@ class CountriesList : Fragment() {
             val service = retrofit.create(ApiService::class.java)
             val countriesRequest = service.getCountries()
             countriesRequest.enqueue(object : Callback<List<Country>> {
+                @RequiresApi(Build.VERSION_CODES.N)
                 override fun onResponse(call: Call<List<Country>>,
                                         response: Response<List<Country>>
                 ) {
                     countries = response.body()
                     if (countries != null) {
-                        for (country in countries!!)
+                        for (country in countries!!){
                             Toast.makeText(requireContext(), "${country.name.common}", Toast.LENGTH_LONG*7).show()
 
+                        }
+                        var mapper: JsonMapper = JsonMapper()
+                        var jsonString = mapper.writeValueAsString(countries!!.get(249).currencies)
+                        println("------->${getKeysInJsonUsingJsonNodeFieldNames(jsonString, mapper)?.size}")
                         Toast.makeText(requireContext(), "${countries!!.size}", Toast.LENGTH_LONG*7).show()
                     }
                 }
@@ -69,6 +80,14 @@ class CountriesList : Fragment() {
         }
         catch (e: Exception){
             Toast.makeText(requireContext(), "Error Occurred: ${e.message}", Toast.LENGTH_LONG*20).show()
+        }
+
+        try{
+            var recycleView = binding.countries
+            recycleView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            recycleView.adapter = CountryAdapter(countries as ArrayList<Country>)
+        }catch (e: Exception){
+            Toast.makeText(requireContext(), "Error Occurred: ${e.message}", Toast.LENGTH_LONG*100).show()
         }
     }
 
