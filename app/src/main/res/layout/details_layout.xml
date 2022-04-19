@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="370dp"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="15dp"
     android:paddingBottom="10dp"
+    android:layout_gravity="center"
     app:layout_scrollFlags="scroll|enterAlways">
 
     <ScrollView
@@ -80,70 +81,70 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:textSize="13sp"
                         android:text="Region : "/>
 
                     <TextView
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="13dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:textSize="13sp"
                         android:text="Area : "/>
 
                     <TextView
                         android:layout_marginTop="20dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:textSize="13sp"
                         android:text="Population : "/>
 
                     <TextView
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="13dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:textSize="13sp"
                         android:text="Phone code : "/>
 
                     <TextView
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="13dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:textSize="13sp"
                         android:text="ISO code : "/>
 
                     <TextView
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="13dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:textSize="13sp"
                         android:text="Currency : "/>
 
                     <TextView
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="13dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:textSize="13sp"
                         android:text="Languages : "/>
 
                     <TextView
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="13dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:textSize="13sp"
                         android:text="Currencies : "/>
 
                     <TextView
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="13dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:textSize="13sp"
                         android:text="Latitude : "/>
 
                     <TextView
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="13dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:textSize="13sp"
                         android:text="Longitude : "/>
 
                 </LinearLayout>
@@ -152,102 +153,94 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp">
+                    android:layout_marginLeft="10dp">
                     <TextView
                         android:id="@+id/region"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:textSize="13sp"
                         android:textStyle="bold"
                         android:text="Region"/>
 
                     <TextView
                         android:id="@+id/area"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="13dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:textSize="13sp"
                         android:textStyle="bold"
                         android:text="Area"/>
 
                     <TextView
                         android:id="@+id/population"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="13dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:textSize="13sp"
                         android:textStyle="bold"
                         android:text="Population"/>
 
                     <TextView
                         android:id="@+id/phoneCode"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="13dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:textSize="13sp"
                         android:textStyle="bold"
                         android:text="Phone code"/>
 
                     <TextView
                         android:id="@+id/isoCurrency"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="13dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:textSize="13sp"
                         android:textStyle="bold"
                         android:text="ISO code"/>
 
                     <TextView
                         android:id="@+id/capital"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="13dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:textSize="13sp"
                         android:textStyle="bold"
                         android:text="Capital"/>
 
-                    <com.google.android.material.chip.ChipGroup
-                        android:id="@+id/languages"
-                        android:layout_marginTop="10dp"
+                    <HorizontalScrollView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:scrollbarAlwaysDrawHorizontalTrack="true">
-
-                        <com.google.android.material.chip.Chip
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="None"
-                            android:textSize="20sp"
-                            android:textColor="@color/white"
-                            android:backgroundTint="@android:color/black"/>
-
-                    </com.google.android.material.chip.ChipGroup>
+                        android:scrollbars="none">
+                        <com.google.android.material.chip.ChipGroup
+                            android:id="@+id/languages"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+                    </HorizontalScrollView>
 
                     <TextView
                         android:id="@+id/currencies"
                         android:layout_marginTop="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:textSize="13sp"
                         android:textStyle="bold"
                         android:text="Currencies "/>
 
                     <TextView
                         android:id="@+id/latitude"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="13dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:textSize="13sp"
                         android:textStyle="bold"
                         android:text="Latitude"/>
 
                     <TextView
                         android:id="@+id/longitude"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="13dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="20sp"
+                        android:textSize="13sp"
                         android:textStyle="bold"
                         android:text="Longitude"/>
 

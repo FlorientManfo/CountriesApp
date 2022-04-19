@@ -9,6 +9,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/transparent"
         android:background="@android:color/transparent">
 
         <include layout="@layout/details_layout"
@@ -27,6 +28,7 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:background="@android:color/background_light"
                 android:id="@+id/map"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

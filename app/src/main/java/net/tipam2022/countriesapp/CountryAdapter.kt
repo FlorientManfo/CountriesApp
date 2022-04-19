@@ -1,7 +1,11 @@
 package net.tipam2022.countriesapp
 
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
+import android.os.AsyncTask
 import android.os.Build
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +23,7 @@ import kotlinx.serialization.json.JsonObject
 import net.tipam2022.countriesapp.models.Country
 import org.json.JSONObject
 
-class CountryAdapter(var countries: ArrayList<Country>):
+class CountryAdapter(var countries: List<Country>):
     RecyclerView.Adapter<CountryAdapter.CountryViewHolder>()  {
 
     class CountryViewHolder(viewHolder: View): RecyclerView.ViewHolder(viewHolder) {
@@ -62,46 +66,15 @@ class CountryAdapter(var countries: ArrayList<Country>):
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onBindViewHolder(holder: CountryViewHolder, position: Int) {
-        var uri = Uri.parse(countries[position].flag)
-        holder.flag.setImageURI(uri)
+        DownloadImageFromInternet(holder.flag).execute(countries[position].flags.png)
         holder.countryName.text = countries[position].name.common
-        holder.countryCode.text = countries[position].idd.root+countries[position].idd.suffixes
-        holder.initial.text = countries[position].cca2?:countries[position].cca3+"/"+countries[position].cioc
+        holder.countryCode.text = countries[position].idd.root+countries[position].idd.suffixes[0]
+        holder.initial.text = countries[position].cca2+"/"+countries[position].cioc
         holder.region.text = countries[position].region+" / "+countries[position].subregion
         holder.officialName.text = countries[position].name.official
         holder.capital.text = countries[position].capital.joinToString(", ")
         bindLanguages(holder.languages, countries[position].languages)
         bindCurrencies(holder.currencies, countries[position].currencies)
-    }
-
-    @RequiresApi(Build.VERSION_CODES.N)
-    private fun bindCurrencies(currency: TextView, currencies: Any?) {
-        var mapper = JsonMapper()
-        var jsonString = mapper.writeValueAsString(currencies)
-        var jsonObj: JSONObject = JSONObject(jsonString)
-        var keys = getKeysInJsonUsingJsonNodeFieldNames(jsonString, mapper)
-
-        var stringResult = ""
-        keys?.forEach {
-            var jsonNode = jsonObj.getJSONObject(it)
-            stringResult+= it + " (${jsonNode.getString("symbol")}), "
-        }
-        stringResult = stringResult.substring(0, stringResult.length - 3 )
-        currency.text = stringResult
-    }
-
-    @RequiresApi(Build.VERSION_CODES.N)
-    private fun bindLanguages(languages: ChipGroup, language: Any?) {
-        var mapper = JsonMapper()
-        var jsonString = mapper.writeValueAsString(language)
-        var jsonObj: JSONObject = JSONObject(jsonString)
-        var keys = getKeysInJsonUsingJsonNodeFieldNames(jsonString, mapper)
-
-        keys?.forEach {
-            var chip = Chip(languages.context)
-            chip.text = jsonObj.getString(it)
-            chip.style(R.style.chip_style)
-        }
     }
 
     override fun getItemCount(): Int {

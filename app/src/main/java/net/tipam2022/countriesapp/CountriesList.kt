@@ -42,11 +42,6 @@ class CountriesList : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.test.setOnClickListener {
-            val action = CountriesListDirections.actionCountriesListToCountryDetails(null)
-            findNavController().navigate(action)
-        }
-
         //Retrofit implementation
         try{
             val retrofit = Retrofit.Builder()
@@ -70,6 +65,14 @@ class CountriesList : Fragment() {
                         var jsonString = mapper.writeValueAsString(countries!!.get(249).currencies)
                         println("------->${getKeysInJsonUsingJsonNodeFieldNames(jsonString, mapper)?.size}")
                         Toast.makeText(requireContext(), "${countries!!.size}", Toast.LENGTH_LONG*7).show()
+
+                        try{
+                            var recycleView = binding.countries
+                            recycleView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+                            recycleView.adapter = CountryAdapter(countries!!)
+                        }catch (e: Exception){
+                            Toast.makeText(requireContext(), "Error Occurred: ${e.message}", Toast.LENGTH_LONG*100).show()
+                        }
                     }
                 }
                 override fun onFailure(call: Call<List<Country>>, t: Throwable) {
@@ -82,13 +85,6 @@ class CountriesList : Fragment() {
             Toast.makeText(requireContext(), "Error Occurred: ${e.message}", Toast.LENGTH_LONG*20).show()
         }
 
-        try{
-            var recycleView = binding.countries
-            recycleView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-            recycleView.adapter = CountryAdapter(countries as ArrayList<Country>)
-        }catch (e: Exception){
-            Toast.makeText(requireContext(), "Error Occurred: ${e.message}", Toast.LENGTH_LONG*100).show()
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
