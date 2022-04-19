@@ -2,6 +2,8 @@ package net.tipam2022.countriesapp
 
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import net.tipam2022.countriesapp.models.Country
 
@@ -9,7 +11,9 @@ class CountryAdapter(var countries: ArrayList<Country>):
     RecyclerView.Adapter<CountryAdapter.CountryViewHolder>()  {
 
     class CountryViewHolder(viewHolder: View): RecyclerView.ViewHolder(viewHolder) {
-
+        var flag: ImageView = viewHolder.findViewById(R.id.flag)
+        var countryName: TextView = viewHolder.findViewById(R.id.countryName)
+        var countryCode: TextView = viewHolder.findViewById(R.id.countryCode)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryViewHolder {
